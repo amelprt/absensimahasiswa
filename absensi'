@@ -1,0 +1,104 @@
+#include <iostream.h>
+#include <conio.h>
+
+int a,n;
+char nama [20][20], nim[20][20],kehadiran[20][20],pil;
+double b, c, d, e, hasil, tambah;
+int k1=0;
+int k2=0;
+int k3=0;
+int k4=0;
+
+void menu();
+
+void maha1()
+{
+clrscr();
+cout<<"Input jumlah Mahasiswa :";cin>>n;
+for (a=1;a<=n;a++)
+{
+clrscr();
+cout<<"Mahasiswa ke "<<a;
+cout<<"\nNama Mahasiswa = ";cin>>nama[a];
+cout<<"Input Nim Mahasiswan = ";cin>>nim[a];
+cout<<"Input Keterangan Kehadiran = ";cin>>kehadiran[a];
+
+if(kehadiran[a][0]=='h'||
+kehadiran[a][0]=='H')
+k1++;
+else if(kehadiran[a][0]=='s'||
+kehadiran[a][0]=='S')
+k2++;
+else if(kehadiran[a][0]=='i'||
+kehadiran[a][0]=='I')
+k3++;
+else if(kehadiran[a][0]=='a'||
+kehadiran[a][0]=='A')
+k4++;
+}
+menu();
+}
+
+void maha2()
+{
+clrscr();
+gotoxy(20,2);cout<<"ABSENSI MAHASISWA KELAS F";
+        gotoxy(1,4);cout<<"Nomor";
+        gotoxy(10,4);cout<<"Nama Mahasiswa";
+        gotoxy(30,4);cout<<"NIM Mahasiswa";
+        gotoxy(50,4);cout<<"Keterangan Kehadiran";
+        for (a=1;a<=n;a++)
+    {
+        gotoxy(3,4+a);cout<<a;
+        gotoxy(10,4+a);cout<<nama[a];
+        gotoxy(30,4+a);cout<<nim[a];
+        gotoxy(50,4+a);cout<<kehadiran[a];
+
+    }
+cout<<"\n\nJumlah Mahasiswa \t= "<<n<<endl;
+cout<<"Jumlah Hadir \t= "<<k1<<endl;
+cout<<"Jumlah Sakit \t= "<<k2<<endl;
+cout<<"Jumlah Izin \t= "<<k3<<endl;
+cout<<"Jumlah Alpa \t= "<<k4<<endl;
+k1=0;k2=0;k3=0;k4=0;
+cout<<""<<endl;
+gotoxy(30,20);cout<<"## THE END ##";
+getch();
+menu();
+}
+
+void menu()
+{
+clrscr();
+cout<<"Nama         : Riko Bayu Wiranata"<<endl;
+cout<<"NIM          : 1115015302"<<endl;
+cout<<"Kelas        : F/Ftikom/Universitas Mulawarman/2011"<<endl;
+cout<<"Tugas        : Membuat Program Absensi Mahasiswa"<<endl;
+cout<<"Pembimbing   : Ibu Shinta Palupi S.Kom M.Kom"<<endl;
+cout<<"========================================================="<<endl;
+cout<<""<<endl;
+cout<<"Kode Keterangan"<<endl;
+cout<<"=========================================================\n";
+cout<<"A Input Absensi Mahasiswa"<<endl;
+cout<<"X Menampilkan Jumlah mahasiswa Izin,Sakit,Alpa,dan Hadir"<<endl;
+cout<<"=========================================================\n";
+cout<<""<<endl;
+cout<<"Input Pilihan Menu = ";cin>>pil;
+if(pil=='A'||pil=='a')
+{
+maha1();
+}
+else if(pil=='X'||pil=='x')
+{
+maha2();
+}
+
+getch();
+}
+
+int main()
+{
+menu();
+getch();
+return 0;
+}
